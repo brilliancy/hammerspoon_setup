@@ -55,16 +55,18 @@ hs.hotkey.bind(hyper, "o", function()
 win:moveToScreen(win:screen():next())
 end)
 
+
+hs.timer.doAt("0:00","1h", function() hs.alert("Ding Dong") end)
+
+
 local applicationHotkeys = {
-  --a = 'Firefox',
+  f = 'org.mozilla.firefox',
   --d = 'SublimeText',
 --s = 'Spotify',
 }
 
 for key, app in pairs(applicationHotkeys) do
-  hs.hotkey.bind(hyper, key, function()
-   hs.application.launchOrFocus(app)
+  hs.hotkey.bind('option', key, function()
+   hs.application.launchOrFocusByBundleID(app)
   end)
 end
-
-hs.timer.doAt("0:00","1h", function() hs.alert("Ding Dong") end)

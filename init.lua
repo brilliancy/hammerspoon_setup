@@ -46,7 +46,11 @@ hs.fnutils.each({
 }, function(object) hs.hotkey.bind(hyper, object.key, object.func) end)
 
 
-
+hs.hotkey.bind(hyper, "e", function()
+  hs.hints.windowHints();
+  
+win:moveToScreen(win:screen():next())
+end)
 
 hs.hotkey.bind(hyper, "o", function()
   local win = hs.window.focusedWindow();
